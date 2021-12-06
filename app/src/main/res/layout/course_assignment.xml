@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:columnCount="1" >
+
+        <ImageView
+            android:id="@+id/Icon"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_weight="1"
+            android:background="@color/tint"
+            android:padding="5dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/hkmu_icon"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/CourseName"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@color/lime"
+            android:gravity="center_vertical"
+            android:padding="5dp"
+            android:text=""
+            android:textColor="#0979BE"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/Assignment"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@color/lime"
+            android:gravity="center_vertical"
+            android:padding="5dp"
+            android:text="Assignment"
+            android:textColor="#0979BE"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/assignment1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/textview_border"
+            android:text=""
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:padding="10dp"
+            android:textColor="#68B9B9"
+            android:layout_marginTop="20dp"
+            android:gravity="center_vertical" />
+
+        <TextView
+            android:id="@+id/assignment2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/textview_border2"
+            android:text=""
+            android:textSize="20dp"
+            android:layout_marginTop="20dp"
+            android:textStyle="bold"
+            android:textColor="#5187D8"
+            android:padding="10dp"
+            android:gravity="center_vertical" />
+
+
+    </GridLayout>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

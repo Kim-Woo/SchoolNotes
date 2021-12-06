@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">SchoolNotes</string>
+    <string name="upcoming_classes">Upcoming Classes</string>
+    <string name="my_course">My Courses</string>
+    <string name="about">About</string>
+    <string name="setting">Setting</string>
+</resources>
