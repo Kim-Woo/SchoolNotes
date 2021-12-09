@@ -2,16 +2,19 @@ package com.example.schoolnotes;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.preference.PreferenceManager;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Resources;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
-
-import java.util.Calendar;
-import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,6 +24,10 @@ public class MainActivity extends AppCompatActivity {
     Course[] courses;
     View [] upComing;
 
+
+    private Activity mActivity;
+    private SharedPreferences mSharedPreferences;
+    private TextView upcomingCoursesText, myCoursesText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,9 +42,27 @@ public class MainActivity extends AppCompatActivity {
         courses = coursesList.getCourseArray();
 
         createSchedule();
+
+        mActivity = MainActivity.this;
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(mActivity);
+        upcomingCoursesText = findViewById(R.id.textView_Upcoming);
+        myCoursesText = findViewById(R.id.textView_myCourses);
+
+
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
 
+        String textColor = mSharedPreferences.getString(
+                getString(R.string.text_color_key),
+                getString(R.string.text_color_default));
+        upcomingCoursesText.setTextColor(Color.parseColor(textColor));
+        myCoursesText.setTextColor(Color.parseColor(textColor));
+
+
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
@@ -50,12 +75,14 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.about:
                 //User chose the "About" item, show the about page...
-                Intent intent = new Intent(MainActivity.this,About.class);
-                startActivity(intent);
+                Intent aboutIntent = new Intent(MainActivity.this,About.class);
+                startActivity(aboutIntent);
                 return true;
 
             case R.id.setting:
                 // User chose the "Settings" item, show the app settings UI...
+                Intent settingIntent = new Intent(MainActivity.this,SettingActivity.class);
+                startActivity(settingIntent);
                 return true;
 
             default:
@@ -76,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("TheCourse", theCourse);
                 //start intent
-                Intent intent = new Intent(MainActivity.this, CourseAssignmentIntentActivity.class);
+                Intent intent = new Intent(MainActivity.this, CourseAssignmentActivity.class);
                 intent.putExtras(bundle);
                 startActivity(intent);
 

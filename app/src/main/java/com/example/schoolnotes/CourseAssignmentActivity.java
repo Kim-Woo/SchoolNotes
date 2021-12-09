@@ -1,18 +1,34 @@
 package com.example.schoolnotes;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.res.Resources;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.preference.PreferenceManager;
 
-public class CourseAssignmentIntentActivity extends AppCompatActivity {
+public class CourseAssignmentActivity extends AppCompatActivity {
 
     public static final String TheCourse = "Key1";
+
+    private TextView assignmentText;
+
+    private Activity mActivity;
+    private SharedPreferences mSharedPreferences;  //save
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.course_assignment);
+
+        assignmentText = findViewById(R.id.textView_Assignment);
+        mActivity = CourseAssignmentActivity.this;
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(mActivity); //save
 
         Course theCourse;
         theCourse = (Course) getIntent().getSerializableExtra("TheCourse");
@@ -29,21 +45,19 @@ public class CourseAssignmentIntentActivity extends AppCompatActivity {
 
         TextView assignment2 = findViewById(R.id.assignment2);
         assignment2.setText(a2.getTitle()+ "\n" +"Due Date: "+a2.getDueDate());
+    }
 
-//
-//        String courseTitle = getIntent().getStringExtra(CourseTitle);
-//        String a1Title = getIntent().getStringExtra(A1Title);
-//        String a1DueDate = getIntent().getStringExtra(A1DueDate);
-//        String a2Title = getIntent().getStringExtra(A2Title);
-//        String a2DueDate = getIntent().getStringExtra(A2DueDate);
-//
-//        TextView name = findViewById(R.id.CourseName);
-//        name.setText(courseTitle);
-//
-//        TextView assignment1 = findViewById(R.id.assignment1);
-//        assignment1.setText(a1Title+ "\n" +"Due Date: "+a1DueDate);
-//
-//        TextView assignment2 = findViewById(R.id.assignment2);
-//        assignment2.setText(a2Title+ "\n" +"Due Date: "+a2DueDate);
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+
+        String textColor = mSharedPreferences.getString(
+                getString(R.string.text_color_key),
+                getString(R.string.text_color_default));
+        assignmentText.setTextColor(Color.parseColor(textColor));
+
+
+
     }
 }

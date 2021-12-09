@@ -2,6 +2,18 @@
     <string name="app_name">SchoolNotes</string>
     <string name="upcoming_classes">Upcoming Classes</string>
     <string name="my_course">My Courses</string>
+    <string name="assignment">Assignment</string>
     <string name="about">About</string>
     <string name="setting">Setting</string>
+
+    <string-array name="color_names">
+        <item>Black</item>
+        <item>White</item>
+        <item>Red</item>
+        <item>Yellow</item>
+        <item>Blue</item>
+        <item>Magenta</item>
+    </string-array>
+    <string name="text_color_key">text_color</string>
+    <string name="text_color_default">Black</string>
 </resources>
