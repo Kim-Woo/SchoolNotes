@@ -1,20 +1,18 @@
 package com.example.schoolnotes;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.preference.PreferenceManager;
-
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.preference.PreferenceManager;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,16 +31,21 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //Setting Toolbar
         Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar);
         myToolbar.setTitle("");
         setSupportActionBar(myToolbar);
         myToolbar.inflateMenu(R.menu.top_app_bar);
 
+        //Setting courses array
         coursesList = new CoursesList();
         courses = coursesList.getCourseArray();
 
-        createSchedule();
+        //Create schedule view
+        Thread thread = new Thread(runnable);
+        thread.start();
 
+        //Setting shared preferences for title color setting
         mActivity = MainActivity.this;
         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(mActivity);
         upcomingCoursesText = findViewById(R.id.textView_Upcoming);
@@ -50,6 +53,14 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+        private Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                createSchedule();
+
+            }
+        };
 
     @Override
     protected void onResume() {

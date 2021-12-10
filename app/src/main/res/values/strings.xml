@@ -4,6 +4,11 @@
     <string name="my_course">My Courses</string>
     <string name="assignment">Assignment</string>
     <string name="about">About</string>
+    <string name="aboutMessage">
+        This is SchoolNotes, an app for student to check their upcoming classes schedule and
+        the assignments waiting to finish.
+    </string>
+
     <string name="setting">Setting</string>
 
     <string-array name="color_names">
@@ -16,4 +21,5 @@
     </string-array>
     <string name="text_color_key">text_color</string>
     <string name="text_color_default">Black</string>
+    z
 </resources>
