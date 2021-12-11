@@ -50,8 +50,6 @@ public class MainActivity extends AppCompatActivity {
         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(mActivity);
         upcomingCoursesText = findViewById(R.id.textView_Upcoming);
         myCoursesText = findViewById(R.id.textView_myCourses);
-
-
     }
 
         private Runnable runnable = new Runnable() {
