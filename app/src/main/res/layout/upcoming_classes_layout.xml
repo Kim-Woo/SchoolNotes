@@ -23,7 +23,9 @@
                 android:layout_gravity="start"
                 android:layout_weight="1"
                 android:text="TextView"
-                android:textSize="24sp" />
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/uc_courseTime"
@@ -32,7 +34,9 @@
                 android:layout_gravity="right"
                 android:layout_weight="1"
                 android:text="TextView"
-                android:textSize="24sp" />
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                android:textStyle="bold" />
         </TableRow>
 
         <TableRow
@@ -55,7 +59,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="TextView"
-                    android:textSize="24sp" />
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
             </TableRow>
 
             <TextView
@@ -64,7 +70,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="TextView"
-                android:textSize="24sp" />
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                android:textStyle="bold" />
         </TableRow>
 
     </TableLayout>
